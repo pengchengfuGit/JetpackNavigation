@@ -6,22 +6,21 @@
 
     <fragment android:id="@+id/fragment1" android:name="com.czb.jetpacknavigation.Fragment1" android:label="Fragment1"
               tools:layout="@layout/fragment1">
-        <action android:id="@+id/action_fragment1_to_fragment2" app:destination="@id/navigation"/>
+        <action android:id="@+id/action_fragment1_to_fragment2" app:destination="@id/fragment2"/>
     </fragment>
 
-
-    <navigation android:id="@+id/navigation" app:startDestination="@id/fragment2">
-        <fragment android:id="@+id/fragment2" android:name="com.czb.jetpacknavigation.Fragment2"
-                  tools:layout="@layout/fragment2"
-                  android:label="Fragment2">
-            <action android:id="@+id/action_fragment2_to_fragment3" app:destination="@id/fragment3"/>
-            <action android:id="@+id/action_fragment2_to_mainActivity2" app:destination="@id/mainActivity2"/>
-        </fragment>
-        <fragment android:id="@+id/fragment3" android:name="com.czb.jetpacknavigation.Fragment3"
-                  tools:layout="@layout/fragment3"
-                  android:label="Fragment3"/>
-        <activity android:id="@+id/mainActivity2" android:name="com.czb.jetpacknavigation.MainActivity2"
-                  tools:layout="@layout/activity_main2"
-                  android:label="MainActivity2"/>
-    </navigation>
+    <fragment android:id="@+id/fragment2" android:name="com.czb.jetpacknavigation.Fragment2"
+              tools:layout="@layout/fragment2"
+              android:label="Fragment2">
+        <action android:id="@+id/action_fragment2_to_fragment3" app:destination="@id/fragment3"/>
+        <action android:id="@+id/action_fragment2_to_mainActivity2" app:destination="@id/mainActivity2"/>
+    </fragment>
+    <fragment android:id="@+id/fragment3" android:name="com.czb.jetpacknavigation.Fragment3"
+              app:popUpTo="@id/fragment1"
+              app:popUpToInclusive="false"
+              tools:layout="@layout/fragment3"
+              android:label="Fragment3"/>
+    <activity android:id="@+id/mainActivity2" android:name="com.czb.jetpacknavigation.MainActivity2"
+              tools:layout="@layout/activity_main2"
+              android:label="MainActivity2"/>
 </navigation>
